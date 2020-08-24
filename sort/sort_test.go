@@ -18,7 +18,14 @@ var TestCases = []TestCase{
 	{[]int{2}, []int{2}},
 	{[]int{2, 1}, []int{1, 2}},
 	{[]int{2, 2, 1}, []int{1, 2, 2}},
+	{[]int{3, 5, 8, 1, 2, 9, 4, 7, 6}, []int{1, 2, 3, 4, 5, 6, 7, 8, 9}},
 	{[]int{4, 6, 1, 0, 3, 7, 9, 10, 12}, []int{0, 1, 3, 4, 6, 7, 9, 10, 12}},
+	{[]int{4, 6, 1, 0, 3}, []int{0, 1, 3, 4, 6}},
+}
+
+func TestQuick(t *testing.T) {
+	testSortAlgorithm(t, quickSort)
+	testPropertiesSortAlgorithm(t, quickSort)
 }
 
 func TestBubble(t *testing.T) {
@@ -73,7 +80,7 @@ func testPropertiesSortAlgorithm(t *testing.T, sort func([]int)) {
 	}
 }
 
-var _, benchmarkSlice = generateRandInts(100)
+var _, benchmarkSlice = generateRandInts(50 * 1000)
 
 func BenchmarkBubble(b *testing.B) {
 	for i := 0; i < b.N; i++ {
@@ -90,6 +97,11 @@ func BenchmarkBubble2(b *testing.B) {
 func BenchmarkSelection(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		selection(benchmarkSlice)
+	}
+}
+func BenchmarkQuickSort(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		quickSort(benchmarkSlice)
 	}
 }
 
