@@ -26,6 +26,11 @@ func TestBubble(t *testing.T) {
 	testPropertiesSortAlgorithm(t, bubble)
 }
 
+func TestBubble2(t *testing.T) {
+	testSortAlgorithm(t, bubble2)
+	testPropertiesSortAlgorithm(t, bubble2)
+}
+
 func TestSelection(t *testing.T) {
 	testSortAlgorithm(t, selection)
 	testPropertiesSortAlgorithm(t, selection)
@@ -75,6 +80,13 @@ func BenchmarkBubble(b *testing.B) {
 		bubble(benchmarkSlice)
 	}
 }
+
+func BenchmarkBubble2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		bubble2(benchmarkSlice)
+	}
+}
+
 func BenchmarkSelection(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		selection(benchmarkSlice)

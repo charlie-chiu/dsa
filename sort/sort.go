@@ -4,6 +4,21 @@ import (
 	"math"
 )
 
+// slower than first bubble sort, doesn't know why
+// bubble up smallest (lightest) value to the top of list
+func bubble2(input []int) {
+	// slower than bubble, doesn't know why
+	var length = len(input)
+	for i := 0; i < length; i++ {
+		for j := length - 1; j > i; j-- {
+			prev := j - 1
+			if input[j] < input[prev] {
+				input[j], input[prev] = input[prev], input[j]
+			}
+		}
+	}
+}
+
 func bubble(input []int) {
 	var length = len(input)
 	var sorted = 0
