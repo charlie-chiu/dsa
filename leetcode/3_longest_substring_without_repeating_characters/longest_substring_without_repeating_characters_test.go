@@ -15,6 +15,7 @@ func TestCountBinarySubstrings(t *testing.T) {
 		{"abcabcbb", 3},
 		{"pwwkew", 3},
 		{"dvdf", 3},
+		{"zzxxyyut", 3},
 	}
 
 	for _, tc := range TestCases {

@@ -2,12 +2,13 @@ package main
 
 func lengthOfLongestSubstring(s string) int {
 	var start, end, globalMax int
-	var charCount = make(map[byte]int)
+	// length 128 to handle whole ascii table
+	var countSlice = make([]int, 128)
 
 	for end < len(s) {
-		charCount[s[end]]++
-		for start <= end && charCount[s[end]] > 1 {
-			charCount[s[start]] -= 1
+		countSlice[s[end]]++
+		for start <= end && countSlice[s[end]] > 1 {
+			countSlice[s[start]] -= 1
 			start++
 		}
 
