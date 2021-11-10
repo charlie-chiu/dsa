@@ -6,7 +6,7 @@ func lengthOfLongestSubstring(s string) int {
 
 	for end < len(s) {
 		charCount[s[end]]++
-		for start <= end && hasRepeated(charCount) {
+		for start <= end && charCount[s[end]] > 1 {
 			charCount[s[start]] -= 1
 			start++
 		}
@@ -24,14 +24,4 @@ func max(a, b int) int {
 	} else {
 		return b
 	}
-}
-
-func hasRepeated(counter map[byte]int) bool {
-	for _, count := range counter {
-		if count > 1 {
-			return true
-		}
-	}
-
-	return false
 }
