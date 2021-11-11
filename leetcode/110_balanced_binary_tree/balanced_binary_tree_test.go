@@ -17,6 +17,7 @@ func TestIsBalanced(t *testing.T) {
 		{nil, true},
 		{NewTree(3, 9, 20, nil, nil, 15, 7), true},
 		{NewTree(1, 2, 2, 3, 3, nil, nil, 4, 4), false},
+		{NewTree(1, 2, 2, 3, nil, nil, 3, 4, nil, nil, 4), false},
 	}
 
 	for _, tc := range TestCases {
